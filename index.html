@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BeeU</title>
+<link rel="stylesheet" type="text/css" href="depend/schriften.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="styles-desktop.css">
+<script src="depend/jquery-3.5.1.min.js"></script>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+
+<div class="mainframe">
+
+<div class="topic">
+    <p class="randomize">beware of character actor loose on the streets</p>
+    <input type="text" href="searchresults.php" class="search" placeholder="search on BeeU...">
+</div>
+
+<div class="feedvideocontainer">
+    <video id="fullscreenVideo" loop autoplay playsinline muted src="./test.mp4"></video>
+</div>
+
+<div class="bottom">
+    <div class="date">January 18. 2024</div>
+    <div class="channel">@realadamrose<a href="profile-public.php" class="avatar"></a></div>	
+    <a href="signup.php" class="button1">signup</a>
+    <a href="login.php" class="button1">login</a>
+</div>
+
+<button id="toggleFullscreenButton">Toggle Fullscreen</button>
+
+</div>
+
+<script>
+// Function to toggle fullscreen mode
+function toggleFullscreen() {
+    var elem = document.documentElement;
+    if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
+    }
+}
+
+// Attach toggleFullscreen() function to the click event of the document
+document.addEventListener("click", toggleFullscreen);
+
+// Detect click event on the video to trigger fullscreen on mobile
+var videoElement = document.getElementById("fullscreenVideo");
+videoElement.addEventListener("click", toggleFullscreen);
+
+// Toggle fullscreen when button is clicked
+document.getElementById("toggleFullscreenButton").addEventListener("click", toggleFullscreen);
+</script>
+
+</body>
+</html>
